@@ -36,11 +36,11 @@ void ACharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 void ACharacterBase::MoveUp(float Value)
 {
-	AddMovementInput(GetActorForwardVector() * Value);
+	AddMovementInput(FVector::ForwardVector * Value);
 }
 
 void ACharacterBase::MoveRight(float Value)
 {
-	AddMovementInput(GetActorRightVector() * Value);
+	AddMovementInput(FVector::RightVector * Value);
 }
 
