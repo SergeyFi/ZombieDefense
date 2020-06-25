@@ -20,7 +20,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HealthCurrent;
 
 	UPROPERTY(EditAnywhere)
@@ -30,9 +30,6 @@ protected:
 	float DamageResistance;
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
 	void AddHealth(float Heal);
 
 	void RemoveHealth(float Damage);
