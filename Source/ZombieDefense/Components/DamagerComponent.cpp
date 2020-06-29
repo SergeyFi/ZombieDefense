@@ -10,9 +10,11 @@ UDamagerComponent::UDamagerComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 
-	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
+	CriticalDamageMultiplier = 1.0f;
+
+	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("SphereOverlap"));
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &UDamagerComponent::OnSphereOverlap);
-	Sphere->SetupAttachment(GetAttachmentRoot());
+	Sphere->SetupAttachment(this);
 }
 
 
@@ -31,7 +33,17 @@ void UDamagerComponent::OnSphereOverlap(class UPrimitiveComponent* OverlappedCom
 
 		if (HealthComp)
 		{
-			HealthComp->RemoveHealth(Damage);
+			if (FMath::RandRange(0.0f, 100.0f) <= CriticalDamageChance)
+			{
+				HealthComp->RemoveHealth(Damage * CriticalDamageMultiplier);
+
+				OnCriticalDamage.Broadcast(Damage * CriticalDamageMultiplier);
+			}
+			else
+			{
+				HealthComp->RemoveHealth(Damage);
+			}
+			
 			DestroyProjectile();
 		}
 	}
