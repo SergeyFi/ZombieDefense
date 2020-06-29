@@ -41,5 +41,9 @@ public:
 	UPROPERTY(EditAnywhere)
     bool IsAutomatic;
 	
-		
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FProjectileSpawned, AActor*, Projectile);
+
+	UPROPERTY(BlueprintAssignable)
+	FProjectileSpawned OnProjectileSpawned;
+	
 };

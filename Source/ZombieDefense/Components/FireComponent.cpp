@@ -25,7 +25,12 @@ void UFireComponent::Fire()
 	{
 		FActorSpawnParameters SpawnParams;
 		
-		GetWorld()->SpawnActor<AProjectile>(ProjectileClass, GetComponentTransform(), SpawnParams);
+		
+
+		AActor* Projectile
+		= GetWorld()->SpawnActor<AProjectile>(ProjectileClass, GetComponentTransform(), SpawnParams);
+
+		OnProjectileSpawned.Broadcast(Projectile);
 	}
 }
 
