@@ -21,12 +21,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
-	float FireRate;
-
-	UPROPERTY(EditAnywhere)
-    bool IsAutomatic;
-
-	UPROPERTY(EditAnywhere)
     TSubclassOf<class AProjectile> ProjectileClass;
 
 	void Fire();
@@ -40,6 +34,12 @@ public:
 
 	UFUNCTION(BlueprintCallable)
     void FireStop();
+
+	UPROPERTY(EditAnywhere)
+    float FireRate;
+
+	UPROPERTY(EditAnywhere)
+    bool IsAutomatic;
 	
 		
 };
