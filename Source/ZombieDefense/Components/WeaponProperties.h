@@ -25,31 +25,60 @@ protected:
 	UFUNCTION()
 	void UpdateProjectile(AActor* Projectile);
 
-public:
-
 	UPROPERTY(EditAnywhere)
 	float Damage;
+	
+protected:
+	UPROPERTY(EditAnywhere)
+    float FireRate;
 
 	UPROPERTY(EditAnywhere)
-	float FireRate;
+    float CriticalDamageMultiplier;
 
 	UPROPERTY(EditAnywhere)
-	float CriticalDamageMultiplier;
+    float CriticalDamageChance;
 
 	UPROPERTY(EditAnywhere)
-	float CriticalDamageChance;
+    float AmmoCurrent;
 
 	UPROPERTY(EditAnywhere)
-	float AmmoCurrent;
-
-	UPROPERTY(EditAnywhere)
-	float AmmoCapacity;
+    float AmmoCapacity;
 	
 	UPROPERTY(EditAnywhere)
-	float ReloadSpeed;
+    float ReloadSpeed;
 
+public:
+	
 	UFUNCTION(BlueprintCallable)
 	void UpdateFireComponentProperties();
+
+	float GetDamage() const;
+	
+	void SetDamage(float DamageNew);
+	
+	float GetFireRate() const;
+	
+	void SetFireRate(float FireRateNew);
+	
+	float GetCriticalDamageMultiplier() const;
+	
+	void SetCriticalDamageMultiplier(float CriticalDamageMultiplierNew);
+	
+	float GetCriticalDamageChance() const;
+	
+	void SetCriticalDamageChance(float CriticalDamageChanceNew);
+	
+	float GetAmmoCurrent() const;
+	
+	void SetAmmoCurrent(float AmmoCurrentNew);
+	
+	float GetAmmoCapacity() const;
+	
+	void SetAmmoCapacity(float AmmoCapacityNew);
+	
+	float GetReloadSpeed() const;
+	
+	void SetReloadSpeed(float ReloadSpeedNew);
 	
 		
 };

@@ -21,11 +21,9 @@ void UFireComponent::BeginPlay()
 
 void UFireComponent::Fire()
 {
-	if (ProjectileClass)
+	if (ProjectileClass && CanFire)
 	{
 		FActorSpawnParameters SpawnParams;
-		
-		
 
 		AActor* Projectile
 		= GetWorld()->SpawnActor<AProjectile>(ProjectileClass, GetComponentTransform(), SpawnParams);
@@ -42,5 +40,16 @@ void UFireComponent::FireStart()
 void UFireComponent::FireStop()
 {
 	GetWorld()->GetTimerManager().ClearTimer(FireTimer);
+}
+
+void UFireComponent::BlockFire()
+{
+	CanFire = false;
+	FireStop();
+}
+
+void UFireComponent::UnblockFire()
+{
+	CanFire = true;
 }
 
