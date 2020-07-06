@@ -25,8 +25,8 @@ void UHealthComponent::AddHealth(float Heal)
 {
 	HealthCurrent += Heal;
 
-	HealthHeal.Broadcast(Heal);
-	HealthChanged.Broadcast(HealthCurrent);
+	OnHealthHeal.Broadcast(Heal);
+	OnHealthChanged.Broadcast(HealthCurrent);
 
 	if (HealthCurrent > HealthMax)
 	{
@@ -38,12 +38,17 @@ void UHealthComponent::RemoveHealth(float Damage)
 {
 	HealthCurrent -= Damage * (1.0f - DamageResistance);
 
-	HealthDamage.Broadcast(Damage);
-	HealthChanged.Broadcast(HealthCurrent);
+	OnHealthDamaged.Broadcast(Damage);
+	OnHealthChanged.Broadcast(HealthCurrent);
 
 	if (HealthCurrent < 0.0f)
 	{
 		HealthCurrent = 0.0f;
+	}
+
+	if (HealthCurrent <= 0.0f)
+	{
+		OnHealthEnded.Broadcast(HealthCurrent);
 	}
 }
 

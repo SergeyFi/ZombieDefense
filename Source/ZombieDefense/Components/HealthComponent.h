@@ -38,9 +38,17 @@ public:
 
 	void RemoveDamageResist(float DamageResist);
 
-	DECLARE_EVENT_OneParam(UHealthComponent,FHealthStatus, float)
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FHealthEvent, float, Health);
 
-	FHealthStatus HealthDamage;
-	FHealthStatus HealthHeal;
-	FHealthStatus HealthChanged;
+	UPROPERTY(BlueprintAssignable)
+	FHealthEvent OnHealthEnded;
+
+	UPROPERTY(BlueprintAssignable)
+	FHealthEvent OnHealthDamaged;
+
+	UPROPERTY(BlueprintAssignable)
+	FHealthEvent OnHealthChanged;
+
+	UPROPERTY(BlueprintAssignable)
+	FHealthEvent OnHealthHeal;
 };
