@@ -53,31 +53,38 @@ public:
 	void UpdateFireComponentProperties();
 
 	float GetDamage() const;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SetDamage(float DamageNew);
 	
 	float GetFireRate() const;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SetFireRate(float FireRateNew);
 	
 	float GetCriticalDamageMultiplier() const;
 	
+	UFUNCTION(BlueprintCallable)
 	void SetCriticalDamageMultiplier(float CriticalDamageMultiplierNew);
 	
 	float GetCriticalDamageChance() const;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SetCriticalDamageChance(float CriticalDamageChanceNew);
 	
 	float GetAmmoCurrent() const;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SetAmmoCurrent(float AmmoCurrentNew);
 	
 	float GetAmmoCapacity() const;
 	
+	UFUNCTION(BlueprintCallable)
 	void SetAmmoCapacity(float AmmoCapacityNew);
 	
 	float GetReloadSpeed() const;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SetReloadSpeed(float ReloadSpeedNew);
 	
 		
