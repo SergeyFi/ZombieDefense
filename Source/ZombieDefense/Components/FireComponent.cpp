@@ -8,6 +8,7 @@
 UFireComponent::UFireComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	CanFire = true;
 	
 }
 
