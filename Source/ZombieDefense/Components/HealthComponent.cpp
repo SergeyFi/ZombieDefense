@@ -18,6 +18,8 @@ UHealthComponent::UHealthComponent()
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	DestroyOnHealthEnded = true;
 	
 }
 
@@ -49,6 +51,11 @@ void UHealthComponent::RemoveHealth(float Damage)
 	if (HealthCurrent <= 0.0f)
 	{
 		OnHealthEnded.Broadcast(HealthCurrent);
+
+		if (DestroyOnHealthEnded)
+		{
+			GetOwner()->Destroy();
+		}
 	}
 }
 

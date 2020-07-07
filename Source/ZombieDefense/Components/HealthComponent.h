@@ -3,12 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/SceneComponent.h"
+#include "Components/ActorComponent.h"
 #include "HealthComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class ZOMBIEDEFENSE_API UHealthComponent : public USceneComponent
+class ZOMBIEDEFENSE_API UHealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
@@ -28,6 +28,9 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	float DamageResistance;
+
+	UPROPERTY(EditAnywhere)
+	bool DestroyOnHealthEnded;
 
 public:	
 	void AddHealth(float Heal);
