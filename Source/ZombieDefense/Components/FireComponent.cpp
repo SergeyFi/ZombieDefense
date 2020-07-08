@@ -25,6 +25,7 @@ void UFireComponent::Fire()
 	if (ProjectileClass && CanFire)
 	{
 		FActorSpawnParameters SpawnParams;
+		SpawnParams.Owner = GetOwner();
 
 		AActor* Projectile
 		= GetWorld()->SpawnActor<AProjectile>(ProjectileClass, GetComponentTransform(), SpawnParams);

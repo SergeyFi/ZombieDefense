@@ -35,13 +35,13 @@ void UDamagerComponent::OnSphereOverlap(class UPrimitiveComponent* OverlappedCom
 		{
 			if (FMath::RandRange(0.0f, 100.0f) <= CriticalDamageChance)
 			{
-				HealthComp->RemoveHealth(Damage * CriticalDamageMultiplier, GetOwner());
+				HealthComp->RemoveHealth(Damage * CriticalDamageMultiplier, GetOwner()->GetInstigator());
 
 				OnCriticalDamage.Broadcast(Damage * CriticalDamageMultiplier);
 			}
 			else
 			{
-				HealthComp->RemoveHealth(Damage, GetOwner());
+				HealthComp->RemoveHealth(Damage, GetOwner()->GetInstigator());
 			}
 			
 			DestroyProjectile();
