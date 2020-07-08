@@ -33,15 +33,15 @@ protected:
 	bool DestroyOnHealthEnded;
 
 public:	
-	void AddHealth(float Heal);
+	void AddHealth(float Heal, AActor* Instigator = nullptr);
 
-	void RemoveHealth(float Damage);
+	void RemoveHealth(float Damage, AActor* Instigator = nullptr);
 
 	void AddDamageResist(float DamageResist);
 
 	void RemoveDamageResist(float DamageResist);
 
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FHealthEvent, float, Health);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
 
 	UPROPERTY(BlueprintAssignable)
 	FHealthEvent OnHealthEnded;

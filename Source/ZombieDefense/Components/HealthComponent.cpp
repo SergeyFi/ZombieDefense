@@ -23,12 +23,12 @@ void UHealthComponent::BeginPlay()
 	
 }
 
-void UHealthComponent::AddHealth(float Heal)
+void UHealthComponent::AddHealth(float Heal, AActor* Instigator)
 {
 	HealthCurrent += Heal;
 
-	OnHealthHeal.Broadcast(Heal);
-	OnHealthChanged.Broadcast(HealthCurrent);
+	OnHealthHeal.Broadcast(Instigator, Heal);
+	OnHealthChanged.Broadcast(Instigator, HealthCurrent);
 
 	if (HealthCurrent > HealthMax)
 	{
@@ -36,12 +36,12 @@ void UHealthComponent::AddHealth(float Heal)
 	}
 }
 
-void UHealthComponent::RemoveHealth(float Damage)
+void UHealthComponent::RemoveHealth(float Damage, AActor* Instigator)
 {
 	HealthCurrent -= Damage * (1.0f - DamageResistance);
 
-	OnHealthDamaged.Broadcast(Damage);
-	OnHealthChanged.Broadcast(HealthCurrent);
+	OnHealthDamaged.Broadcast(Instigator, Damage);
+	OnHealthChanged.Broadcast(Instigator, HealthCurrent);
 
 	if (HealthCurrent < 0.0f)
 	{
@@ -50,7 +50,7 @@ void UHealthComponent::RemoveHealth(float Damage)
 
 	if (HealthCurrent <= 0.0f)
 	{
-		OnHealthEnded.Broadcast(HealthCurrent);
+		OnHealthEnded.Broadcast(Instigator, HealthCurrent);
 
 		if (DestroyOnHealthEnded)
 		{
