@@ -44,7 +44,7 @@ void UAttackComponent::AttackTarget(AActor* Target)
 
 		if (HealthComp)
 		{
-			HealthComp->RemoveHealth(Damage);
+			HealthComp->RemoveHealth(Damage, GetOwner());
 		}
 
 		CoolDown = true;
