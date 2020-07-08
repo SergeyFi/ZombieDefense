@@ -7,7 +7,7 @@
 #include "MineralsComponent.generated.h"
 
 
-UCLASS()
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ZOMBIEDEFENSE_API UMineralsComponent : public UAmountComponent
 {
 	GENERATED_BODY()
