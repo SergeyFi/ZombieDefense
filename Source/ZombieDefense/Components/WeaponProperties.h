@@ -28,9 +28,11 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float Damage;
 	
-protected:
 	UPROPERTY(EditAnywhere)
     float FireRate;
+
+	UPROPERTY(EditAnywhere)
+	bool bIsAutomatick;
 
 	UPROPERTY(EditAnywhere)
     float CriticalDamageMultiplier;
@@ -38,19 +40,12 @@ protected:
 	UPROPERTY(EditAnywhere)
     float CriticalDamageChance;
 
-	UPROPERTY(EditAnywhere)
-    float AmmoCurrent;
-
-	UPROPERTY(EditAnywhere)
-    float AmmoCapacity;
-	
-	UPROPERTY(EditAnywhere)
-    float ReloadSpeed;
+	void UpdateFireComponent();
 
 public:
 	
 	UFUNCTION(BlueprintCallable)
-	void UpdateFireComponentProperties();
+	void ApplyWeaponProperties();
 
 	float GetDamage() const;
 
@@ -71,21 +66,5 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetCriticalDamageChance(float CriticalDamageChanceNew);
-	
-	float GetAmmoCurrent() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SetAmmoCurrent(float AmmoCurrentNew);
-	
-	float GetAmmoCapacity() const;
-	
-	UFUNCTION(BlueprintCallable)
-	void SetAmmoCapacity(float AmmoCapacityNew);
-	
-	float GetReloadSpeed() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SetReloadSpeed(float ReloadSpeedNew);
-	
 		
 };

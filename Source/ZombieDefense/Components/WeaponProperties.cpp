@@ -19,7 +19,7 @@ void UWeaponProperties::BeginPlay()
 	Super::BeginPlay();
 
 	BindToFireComponent();
-	UpdateFireComponentProperties();
+	ApplyWeaponProperties();
 }
 
 void UWeaponProperties::BindToFireComponent()
@@ -51,7 +51,7 @@ void UWeaponProperties::UpdateProjectile(AActor* Projectile)
 	}
 }
 
-void UWeaponProperties::UpdateFireComponentProperties()
+void UWeaponProperties::UpdateFireComponent()
 {
 	TArray<UFireComponent*> FireComponents;
 	GetOwner()->GetComponents<UFireComponent>(FireComponents);
@@ -61,8 +61,14 @@ void UWeaponProperties::UpdateFireComponentProperties()
 		if (FireComponent)
 		{
 			FireComponent->FireRate = FireRate;
+			FireComponent->IsAutomatic = bIsAutomatick;
 		}
 	}
+}
+
+void UWeaponProperties::ApplyWeaponProperties()
+{
+	UpdateFireComponent();
 }
 
 float UWeaponProperties::GetDamage() const
@@ -72,7 +78,7 @@ float UWeaponProperties::GetDamage() const
 
 void UWeaponProperties::SetDamage(float DamageNew)
 {
-	UpdateFireComponentProperties();
+	ApplyWeaponProperties();
 	this->Damage = DamageNew;
 }
 
@@ -83,7 +89,7 @@ float UWeaponProperties::GetFireRate() const
 
 void UWeaponProperties::SetFireRate(float FireRateNew)
 {
-	UpdateFireComponentProperties();
+	ApplyWeaponProperties();
 	this->FireRate = FireRateNew;
 }
 
@@ -94,7 +100,7 @@ float UWeaponProperties::GetCriticalDamageMultiplier() const
 
 void UWeaponProperties::SetCriticalDamageMultiplier(float CriticalDamageMultiplierNew)
 {
-	UpdateFireComponentProperties();
+	ApplyWeaponProperties();
 	this->CriticalDamageMultiplier = CriticalDamageMultiplierNew;
 }
 
@@ -105,40 +111,6 @@ float UWeaponProperties::GetCriticalDamageChance() const
 
 void UWeaponProperties::SetCriticalDamageChance(float CriticalDamageChanceNew)
 {
-	UpdateFireComponentProperties();
+	ApplyWeaponProperties();
 	this->CriticalDamageChance = CriticalDamageChanceNew;
 }
-
-float UWeaponProperties::GetAmmoCurrent() const
-{
-	return AmmoCurrent;
-}
-
-void UWeaponProperties::SetAmmoCurrent(float AmmoCurrentNew)
-{
-	UpdateFireComponentProperties();
-	this->AmmoCurrent = AmmoCurrentNew;
-}
-
-float UWeaponProperties::GetAmmoCapacity() const
-{
-	return AmmoCapacity;
-}
-
-void UWeaponProperties::SetAmmoCapacity(float AmmoCapacityNew)
-{
-	UpdateFireComponentProperties();
-	this->AmmoCapacity = AmmoCapacityNew;
-}
-
-float UWeaponProperties::GetReloadSpeed() const
-{
-	return ReloadSpeed;
-}
-
-void UWeaponProperties::SetReloadSpeed(float ReloadSpeedNew)
-{
-	UpdateFireComponentProperties();
-	this->ReloadSpeed = ReloadSpeedNew;
-}
-
