@@ -48,7 +48,6 @@ void UFireComponent::FireStop()
 void UFireComponent::BlockFire()
 {
 	CanFire = false;
-	FireStop();
 }
 
 void UFireComponent::UnblockFire()
