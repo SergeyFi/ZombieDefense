@@ -32,7 +32,7 @@ public:
 	void SetAmount(float AmountNew);
 
 	UFUNCTION(BlueprintCallable)
-	void AddAmount(float AmountIncrease);
+	virtual void AddAmount(float AmountIncrease);
 
 	UFUNCTION(BlueprintCallable)
 	void RemoveAmount(float AmountDecrease);
