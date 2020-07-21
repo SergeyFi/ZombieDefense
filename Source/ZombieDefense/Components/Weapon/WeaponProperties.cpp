@@ -4,7 +4,7 @@
 #include "WeaponProperties.h"
 
 #include "FireComponent.h"
-#include "ZombieDefense/Components/DamagerComponent.h"
+#include "ZombieDefense/Components/Weapon/DamagerComponent.h"
 
 // Sets default values for this component's properties
 UWeaponProperties::UWeaponProperties()
