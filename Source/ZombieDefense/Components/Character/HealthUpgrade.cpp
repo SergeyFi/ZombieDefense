@@ -25,8 +25,6 @@ void UHealthUpgrade::UpgradeVirtual()
 
 	if (HealthComponent)
 	{
-		HealthComponent->IncreaseMaxHealth(UpgradeValue);
-
-		UpgradeValue += UpgradeStep;
+		HealthComponent->IncreaseMaxHealth(UpgradeStep);
 	}
 }
