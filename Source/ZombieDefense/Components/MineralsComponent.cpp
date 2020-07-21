@@ -4,12 +4,35 @@
 #include "MineralsComponent.h"
 #include "ZombieDefense/Components/HealthComponent.h"
 
+UMineralsComponent::UMineralsComponent()
+{
+}
 
 void UMineralsComponent::BeginPlay()
 {
     Super::BeginPlay();
 
     BindToOwnerHealth();
+}
+
+void UMineralsComponent::AddMinerals(int Amount)
+{
+    Minerals += Amount;
+}
+
+void UMineralsComponent::RemoveMinerals(int Amount)
+{
+    Minerals -= Amount;
+
+    if (Minerals <= 0)
+    {
+        Minerals = 0;
+    }
+}
+
+int UMineralsComponent::GetMinerals()
+{
+    return Minerals;
 }
 
 void UMineralsComponent::AddMineralsToKiller(AActor* Instigator, float Health)
@@ -20,8 +43,8 @@ void UMineralsComponent::AddMineralsToKiller(AActor* Instigator, float Health)
 
         if (MineralsComponent)
         {
-            MineralsComponent->AddAmount(Amount);
-            Amount = 0.0f;
+            MineralsComponent->AddMinerals(Minerals);
+            Minerals = 0;
         }
     }
 }
