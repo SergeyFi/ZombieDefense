@@ -71,13 +71,10 @@ void UHealthComponent::RemoveHealth(float Damage, AActor* Instigator)
 	OnHealthDamaged.Broadcast(Instigator, Damage);
 	OnHealthChanged.Broadcast(Instigator, HealthCurrent);
 
-	if (HealthCurrent < 0.0f)
-	{
-		HealthCurrent = 0.0f;
-	}
-
 	if (HealthCurrent <= 0.0f)
 	{
+		HealthCurrent = 0.0f;
+		
 		OnHealthEnded.Broadcast(Instigator, HealthCurrent);
 
 		if (bDestroyOnHealthEnded)
@@ -85,6 +82,8 @@ void UHealthComponent::RemoveHealth(float Damage, AActor* Instigator)
 			GetOwner()->Destroy();
 		}
 	}
+
+	StartHealthRegen();
 }
 
 void UHealthComponent::AddDamageResist(float DamageResist)
