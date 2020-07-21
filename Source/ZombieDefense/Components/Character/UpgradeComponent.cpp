@@ -8,7 +8,6 @@
 UUpgradeComponent::UUpgradeComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
-	
 }
 
 void UUpgradeComponent::Upgrade()
@@ -26,14 +25,6 @@ void UUpgradeComponent::Upgrade()
 			MineralsToUpgrade += MineralsUpgradeStep;
 		}
 	}
-}
-
-
-// Called when the game starts
-void UUpgradeComponent::BeginPlay()
-{
-	Super::BeginPlay();
-	
 }
 
 void UUpgradeComponent::UpgradeVirtual()

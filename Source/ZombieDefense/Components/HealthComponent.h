@@ -16,9 +16,36 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
+	void AddHealth(float Heal, AActor* Instigator = nullptr);
+
+	void RemoveHealth(float Damage, AActor* Instigator = nullptr);
+
+	void AddDamageResist(float DamageResist);
+
+	void RemoveDamageResist(float DamageResist);
+
+	void IncreaseMaxHealth(float HealthUpgrade);
+
+	void IncreaseHealthRegen(float HealthRegenUpgrade);
+
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
+
+	UPROPERTY(BlueprintAssignable)
+    FHealthEvent OnHealthEnded;
+
+	UPROPERTY(BlueprintAssignable)
+    FHealthEvent OnHealthDamaged;
+
+	UPROPERTY(BlueprintAssignable)
+    FHealthEvent OnHealthChanged;
+
+	UPROPERTY(BlueprintAssignable)
+    FHealthEvent OnHealthHeal;
+
+	UPROPERTY(BlueprintAssignable)
+    FHealthEvent OnHealthHealed;
+
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HealthCurrent;
@@ -49,33 +76,4 @@ protected:
 
 	FTimerHandle TimerHealthRegen;
 
-public:	
-	void AddHealth(float Heal, AActor* Instigator = nullptr);
-
-	void RemoveHealth(float Damage, AActor* Instigator = nullptr);
-
-	void AddDamageResist(float DamageResist);
-
-	void RemoveDamageResist(float DamageResist);
-
-	void IncreaseMaxHealth(float HealthUpgrade);
-
-	void IncreaseHealthRegen(float HealthRegenUpgrade);
-
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
-
-	UPROPERTY(BlueprintAssignable)
-	FHealthEvent OnHealthEnded;
-
-	UPROPERTY(BlueprintAssignable)
-	FHealthEvent OnHealthDamaged;
-
-	UPROPERTY(BlueprintAssignable)
-	FHealthEvent OnHealthChanged;
-
-	UPROPERTY(BlueprintAssignable)
-	FHealthEvent OnHealthHeal;
-
-	UPROPERTY(BlueprintAssignable)
-	FHealthEvent OnHealthHealed;
 };

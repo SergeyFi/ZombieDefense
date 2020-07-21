@@ -13,13 +13,7 @@ class ZOMBIEDEFENSE_API UHealthUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
-	UHealthUpgrade();
-
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+private:
 
 	virtual void UpgradeVirtual() override;
 	

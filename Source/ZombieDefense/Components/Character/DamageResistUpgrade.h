@@ -12,11 +12,7 @@ class ZOMBIEDEFENSE_API UDamageResistUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
-	UDamageResistUpgrade();
-
-protected:
+private:
 
 	virtual void UpgradeVirtual() override;
 		

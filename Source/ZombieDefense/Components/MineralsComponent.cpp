@@ -4,10 +4,6 @@
 #include "MineralsComponent.h"
 #include "ZombieDefense/Components/HealthComponent.h"
 
-UMineralsComponent::UMineralsComponent()
-{
-}
-
 void UMineralsComponent::BeginPlay()
 {
     Super::BeginPlay();

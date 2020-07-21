@@ -12,5 +12,7 @@ class ZOMBIEDEFENSE_API UHealthRegenUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()
 
+private:
+	
 	virtual void UpgradeVirtual() override;
 };

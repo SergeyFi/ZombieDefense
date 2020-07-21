@@ -14,8 +14,6 @@ class ZOMBIEDEFENSE_API UMineralsComponent : public UActorComponent
 
 public:
 
-	UMineralsComponent();
-
 	UFUNCTION(BlueprintCallable)
 	void AddMinerals(int Amount);
 

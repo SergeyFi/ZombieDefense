@@ -5,12 +5,6 @@
 
 #include "ZombieDefense/Components/HealthComponent.h"
 
-// Sets default values for this component's properties
-UDamageResistUpgrade::UDamageResistUpgrade()
-{
-	PrimaryComponentTick.bCanEverTick = false;
-
-}
 
 void UDamageResistUpgrade::UpgradeVirtual()
 {

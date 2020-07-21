@@ -13,14 +13,6 @@ UHealthComponent::UHealthComponent()
 
 	HealthRegen = 1.0f;
 	HealthRegenRate = 1.0f;
-	
-}
-
-
-// Called when the game starts
-void UHealthComponent::BeginPlay()
-{
-	Super::BeginPlay();
 
 	bDestroyOnHealthEnded = true;
 	

@@ -19,8 +19,6 @@ public:
 	void Upgrade();
 
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
 	int MineralsUpgradeStep;
