@@ -30,7 +30,24 @@ protected:
 	float DamageResistance;
 
 	UPROPERTY(EditAnywhere)
-	bool DestroyOnHealthEnded;
+	bool bDestroyOnHealthEnded;
+
+	UPROPERTY(EditAnywhere)
+	bool bHealthRegen;
+
+	UPROPERTY(EditAnywhere)
+	float HealthRegen;
+
+	UPROPERTY(EditAnywhere)
+	float HealthRegenRate;
+	
+	void StartHealthRegen();
+
+	void HealthRegeneration();
+
+	void StopHealthRegen();
+
+	FTimerHandle TimerHealthRegen;
 
 public:	
 	void AddHealth(float Heal, AActor* Instigator = nullptr);
@@ -42,6 +59,8 @@ public:
 	void RemoveDamageResist(float DamageResist);
 
 	void IncreaseMaxHealth(float HealthUpgrade);
+
+	void IncreaseHealthRegen(float HealthRegenUpgrade);
 
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
 

@@ -10,6 +10,9 @@ UHealthComponent::UHealthComponent()
 
 	HealthMax = 100.0f;
 	HealthCurrent = HealthMax;
+
+	HealthRegen = 1.0f;
+	HealthRegenRate = 1.0f;
 	
 }
 
@@ -19,8 +22,32 @@ void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	DestroyOnHealthEnded = true;
+	bDestroyOnHealthEnded = true;
 	
+}
+
+void UHealthComponent::StartHealthRegen()
+{
+	if (bHealthRegen)
+	{
+		GetWorld()->GetTimerManager().SetTimer(TimerHealthRegen, this,
+			&UHealthComponent::HealthRegeneration, HealthRegenRate, true);
+	}
+}
+
+void UHealthComponent::HealthRegeneration()
+{
+	AddHealth(HealthRegen * HealthRegenRate);
+
+	if (HealthCurrent >= HealthMax)
+	{
+		StopHealthRegen();
+	}
+}
+
+void UHealthComponent::StopHealthRegen()
+{
+	GetWorld()->GetTimerManager().ClearTimer(TimerHealthRegen);
 }
 
 void UHealthComponent::AddHealth(float Heal, AActor* Instigator)
@@ -53,7 +80,7 @@ void UHealthComponent::RemoveHealth(float Damage, AActor* Instigator)
 	{
 		OnHealthEnded.Broadcast(Instigator, HealthCurrent);
 
-		if (DestroyOnHealthEnded)
+		if (bDestroyOnHealthEnded)
 		{
 			GetOwner()->Destroy();
 		}
@@ -83,4 +110,9 @@ void UHealthComponent::RemoveDamageResist(float DamageResist)
 void UHealthComponent::IncreaseMaxHealth(float HealthUpgrade)
 {
 	HealthMax += HealthUpgrade;
+}
+
+void UHealthComponent::IncreaseHealthRegen(float HealthRegenUpgrade)
+{
+	HealthRegen += HealthRegenUpgrade;
 }
