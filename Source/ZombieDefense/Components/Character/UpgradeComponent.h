@@ -31,9 +31,6 @@ protected:
 	UPROPERTY(EditAnywhere)
 	int UpgradeStep;
 
-	UPROPERTY(EditAnywhere)
-	int UpgradeValue;
-
 	virtual void UpgradeVirtual();
 		
 };

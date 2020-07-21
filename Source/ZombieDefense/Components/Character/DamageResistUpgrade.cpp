@@ -18,6 +18,6 @@ void UDamageResistUpgrade::UpgradeVirtual()
 
 	if (HealthComponent)
 	{
-		HealthComponent->AddDamageResist(UpgradeValue);
+		HealthComponent->AddDamageResist(UpgradeStep);
 	}
 }
