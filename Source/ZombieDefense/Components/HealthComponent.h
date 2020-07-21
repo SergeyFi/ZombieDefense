@@ -41,6 +41,8 @@ public:
 
 	void RemoveDamageResist(float DamageResist);
 
+	void IncreaseMaxHealth(float HealthUpgrade);
+
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
 
 	UPROPERTY(BlueprintAssignable)
@@ -54,4 +56,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FHealthEvent OnHealthHeal;
+
+	UPROPERTY(BlueprintAssignable)
+	FHealthEvent OnHealthHealed;
 };
