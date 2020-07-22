@@ -27,7 +27,7 @@ protected:
     int MineralsToUpgrade;
 
 	UPROPERTY(EditAnywhere)
-	int UpgradeStep;
+	float UpgradeStep;
 
 	virtual void UpgradeVirtual();
 		
