@@ -7,7 +7,7 @@
 #include "WeaponCritChanceUp.generated.h"
 
 
-UCLASS()
+UCLASS(meta=(IsBlueprintBase="true"))
 class ZOMBIEDEFENSE_API UWeaponCritChanceUp : public UUpgradeComponent
 {
 	GENERATED_BODY()

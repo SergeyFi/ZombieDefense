@@ -7,7 +7,7 @@
 #include "WeaponReloadTimeUp.generated.h"
 
 
-UCLASS()
+UCLASS(meta=(IsBlueprintBase="true"))
 class ZOMBIEDEFENSE_API UWeaponReloadTimeUp : public UUpgradeComponent
 {
 	GENERATED_BODY()
