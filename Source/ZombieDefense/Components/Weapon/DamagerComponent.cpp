@@ -17,13 +17,6 @@ UDamagerComponent::UDamagerComponent()
 	Sphere->SetupAttachment(this);
 }
 
-
-// Called when the game starts
-void UDamagerComponent::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
 void UDamagerComponent::OnSphereOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
 	class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {

@@ -16,9 +16,10 @@ public:
 	// Sets default values for this component's properties
 	UAttackComponent();
 
+	UFUNCTION(BlueprintCallable)
+	void AttackTarget(AActor* Target);
+
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
 	float Damage;
@@ -33,11 +34,5 @@ protected:
 	void StartCoolDown();
 	
 	void StopCoolDown();
-
-	
-
-public:
-	UFUNCTION(BlueprintCallable)
-	void AttackTarget(AActor* Target);
 		
 };

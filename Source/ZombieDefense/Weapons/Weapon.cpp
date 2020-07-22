@@ -8,11 +8,3 @@ AWeapon::AWeapon()
 {
 	PrimaryActorTick.bCanEverTick = false;
 }
-
-// Called when the game starts or when spawned
-void AWeapon::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-

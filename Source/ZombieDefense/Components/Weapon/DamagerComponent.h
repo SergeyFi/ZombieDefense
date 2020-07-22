@@ -16,20 +16,6 @@ public:
 	// Sets default values for this component's properties
 	UDamagerComponent();
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
-	UPROPERTY(EditAnywhere)
-	class USphereComponent* Sphere;
-
-	UFUNCTION()
-	void OnSphereOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
-		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-	void DestroyProjectile();
-
-public:
 	UPROPERTY(EditAnywhere)
 	float Damage;
 
@@ -43,4 +29,16 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FCriticalDamageEvent OnCriticalDamage;
+
+protected:
+
+	UPROPERTY(EditAnywhere)
+	class USphereComponent* Sphere;
+
+	UFUNCTION()
+	void OnSphereOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	void DestroyProjectile();
+
 };

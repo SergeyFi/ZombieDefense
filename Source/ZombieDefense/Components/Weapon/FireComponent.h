@@ -16,30 +16,17 @@ public:
 	// Sets default values for this component's properties
 	UFireComponent();
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
-	UPROPERTY(EditAnywhere)
-    TSubclassOf<class AProjectile> ProjectileClass;
-
-	void Fire();
-
-	FTimerHandle FireTimer;
-
-public:
-	
 	UFUNCTION(BlueprintCallable)
-    void FireStart();
+	void FireStart();
 
 	UFUNCTION(BlueprintCallable)
     void FireStop();
 
 	UPROPERTY(EditAnywhere)
-    float FireRate;
+	float FireRate;
 
 	UPROPERTY(EditAnywhere)
-    bool IsAutomatic;
+	bool IsAutomatic;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool CanFire;
@@ -50,9 +37,18 @@ public:
 	FProjectileSpawned OnProjectileSpawned;
 
 	UFUNCTION(BlueprintCallable)
-	void BlockFire();
+    void BlockFire();
 
 	UFUNCTION(BlueprintCallable)
-	void UnblockFire();
+    void UnblockFire();
+
+protected:
+
+	UPROPERTY(EditAnywhere)
+    TSubclassOf<class AProjectile> ProjectileClass;
+
+	void Fire();
+
+	FTimerHandle FireTimer;
 	
 };

@@ -12,14 +12,6 @@ UFireComponent::UFireComponent()
 	
 }
 
-
-// Called when the game starts
-void UFireComponent::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
 void UFireComponent::Fire()
 {
 	if (ProjectileClass && CanFire)

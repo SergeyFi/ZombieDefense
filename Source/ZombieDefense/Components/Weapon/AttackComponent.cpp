@@ -14,15 +14,6 @@ UAttackComponent::UAttackComponent()
 	DamageRate = 1.0f;
 }
 
-
-// Called when the game starts
-void UAttackComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	
-}
-
 void UAttackComponent::StartCoolDown()
 {
 	GetWorld()->GetTimerManager().SetTimer(
