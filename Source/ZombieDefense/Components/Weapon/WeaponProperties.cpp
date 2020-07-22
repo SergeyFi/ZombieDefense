@@ -71,46 +71,44 @@ void UWeaponProperties::ApplyWeaponProperties()
 	UpdateFireComponent();
 }
 
-float UWeaponProperties::GetDamage() const
+float UWeaponProperties::GetDamage()
 {
-	return Damage;
+	return  Damage;
 }
 
 void UWeaponProperties::SetDamage(float DamageNew)
 {
-	ApplyWeaponProperties();
-	this->Damage = DamageNew;
+	Damage = DamageNew;
 }
 
-float UWeaponProperties::GetFireRate() const
+float UWeaponProperties::GetFireRate()
 {
 	return FireRate;
 }
 
 void UWeaponProperties::SetFireRate(float FireRateNew)
 {
+	FireRate = FireRateNew;
+
 	ApplyWeaponProperties();
-	this->FireRate = FireRateNew;
 }
 
-float UWeaponProperties::GetCriticalDamageMultiplier() const
+float UWeaponProperties::GetDamageMultiplier()
 {
 	return CriticalDamageMultiplier;
 }
 
-void UWeaponProperties::SetCriticalDamageMultiplier(float CriticalDamageMultiplierNew)
+void UWeaponProperties::SetDamageMultiplier(float CriticalDamageMyltiNew)
 {
-	ApplyWeaponProperties();
-	this->CriticalDamageMultiplier = CriticalDamageMultiplierNew;
+	CriticalDamageMultiplier = CriticalDamageMyltiNew;
 }
 
-float UWeaponProperties::GetCriticalDamageChance() const
+float UWeaponProperties::GetCriticalDamageChance()
 {
 	return CriticalDamageChance;
 }
 
-void UWeaponProperties::SetCriticalDamageChance(float CriticalDamageChanceNew)
+void UWeaponProperties::SetCiriticalDamageChance(float CriticalDamageChanceNew)
 {
-	ApplyWeaponProperties();
-	this->CriticalDamageChance = CriticalDamageChanceNew;
+	CriticalDamageChance = CriticalDamageChanceNew;
 }

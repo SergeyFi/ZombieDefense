@@ -16,6 +16,25 @@ public:
 	// Sets default values for this component's properties
 	UWeaponProperties();
 
+	UFUNCTION(BlueprintCallable)
+	void ApplyWeaponProperties();
+
+	float GetDamage();
+
+	void SetDamage(float DamageNew);
+
+	float GetFireRate();
+
+	void SetFireRate(float FireRateNew);
+
+	float GetDamageMultiplier();
+
+	void SetDamageMultiplier(float CriticalDamageMyltiNew);
+
+	float GetCriticalDamageChance();
+
+	void SetCiriticalDamageChance(float CriticalDamageChanceNew);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -41,30 +60,5 @@ protected:
     float CriticalDamageChance;
 
 	void UpdateFireComponent();
-
-public:
-	
-	UFUNCTION(BlueprintCallable)
-	void ApplyWeaponProperties();
-
-	float GetDamage() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SetDamage(float DamageNew);
-	
-	float GetFireRate() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SetFireRate(float FireRateNew);
-	
-	float GetCriticalDamageMultiplier() const;
-	
-	UFUNCTION(BlueprintCallable)
-	void SetCriticalDamageMultiplier(float CriticalDamageMultiplierNew);
-	
-	float GetCriticalDamageChance() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SetCriticalDamageChance(float CriticalDamageChanceNew);
 		
 };
