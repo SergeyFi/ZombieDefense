@@ -12,6 +12,19 @@ class ZOMBIEDEFENSE_API UAmmoComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+
+public:
+
+	UAmmoComponent();
+	
+	void AddAmmo(int AmmoIncrease);
+
+	void RemoveAmmo(int AmmoRemoved);
+
+	float GetReloadTime();
+
+	void SetReloadTime(float ReloadTimeNew);
+
 protected:
 	
 	void BindToFireComponent();
@@ -45,13 +58,5 @@ protected:
 	void Reload();
 
 	FTimerHandle ReloadTimer;
-
-public:
-
-	UAmmoComponent();
-	
-	void AddAmmo(int AmmoIncrease);
-
-	void RemoveAmmo(int AmmoRemoved);
 	
 };

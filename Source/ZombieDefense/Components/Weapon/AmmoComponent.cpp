@@ -113,3 +113,13 @@ void UAmmoComponent::RemoveAmmo(int AmmoRemoved)
         }
     }
 }
+
+float UAmmoComponent::GetReloadTime()
+{
+    return ReloadTime;
+}
+
+void UAmmoComponent::SetReloadTime(float ReloadTimeNew)
+{
+    ReloadTime = ReloadTimeNew;
+}
