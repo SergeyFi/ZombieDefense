@@ -29,6 +29,12 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float UpgradeStep;
 
+	UPROPERTY(VisibleAnywhere)
+	float UpgradeStepTotal;
+
+	UPROPERTY(EditAnywhere)
+	float UpgradeLimit;
+
 	virtual void UpgradeVirtual();
 		
 };

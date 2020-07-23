@@ -13,17 +13,22 @@ UUpgradeComponent::UUpgradeComponent()
 
 void UUpgradeComponent::Upgrade()
 {
-	auto MineralsComp = GetOwner()->FindComponentByClass<UMineralsComponent>();
-
-	if (MineralsComp)
+	if (UpgradeStepTotal <= UpgradeLimit || UpgradeLimit == 0)
 	{
-		if (MineralsComp->GetMinerals() >= MineralsToUpgrade)
+		auto MineralsComp = GetOwner()->FindComponentByClass<UMineralsComponent>();
+
+		if (MineralsComp)
 		{
-			UpgradeVirtual();
+			if (MineralsComp->GetMinerals() >= MineralsToUpgrade)
+			{
+				UpgradeVirtual();
 
-			MineralsComp->RemoveMinerals(MineralsToUpgrade);
+				MineralsComp->RemoveMinerals(MineralsToUpgrade);
 
-			MineralsToUpgrade += MineralsUpgradeStep;
+				MineralsToUpgrade += MineralsUpgradeStep;
+
+				UpgradeStepTotal += UpgradeStep;
+			}
 		}
 	}
 }
