@@ -7,7 +7,7 @@
 #include "DamagerComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UDamagerComponent : public USceneComponent
 {
 	GENERATED_BODY()

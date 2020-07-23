@@ -7,7 +7,7 @@
 #include "AmountComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UAmountComponent : public UActorComponent
 {
 	GENERATED_BODY()

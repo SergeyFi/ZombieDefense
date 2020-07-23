@@ -7,7 +7,7 @@
 #include "DamageResistUpgrade.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UDamageResistUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()

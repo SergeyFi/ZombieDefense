@@ -7,7 +7,7 @@
 #include "AmmoComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UAmmoComponent : public UActorComponent
 {
 	GENERATED_BODY()

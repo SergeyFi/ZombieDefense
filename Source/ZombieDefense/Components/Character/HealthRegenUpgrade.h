@@ -7,7 +7,7 @@
 #include "HealthRegenUpgrade.generated.h"
 
 
-UCLASS()
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UHealthRegenUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()

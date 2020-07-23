@@ -7,7 +7,7 @@
 #include "WeaponProperties.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UWeaponProperties : public UActorComponent
 {
 	GENERATED_BODY()

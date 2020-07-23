@@ -7,7 +7,7 @@
 #include "MovementSpeedUpgrade.generated.h"
 
 
-UCLASS()
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UMovementSpeedUpgrade : public UUpgradeComponent
 {
 	GENERATED_BODY()

@@ -7,7 +7,7 @@
 #include "FireComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(IsBlueprintBase="true") )
 class ZOMBIEDEFENSE_API UFireComponent : public USceneComponent
 {
 	GENERATED_BODY()
