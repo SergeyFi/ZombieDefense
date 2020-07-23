@@ -8,6 +8,7 @@
 UUpgradeComponent::UUpgradeComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 }
 
 void UUpgradeComponent::Upgrade()

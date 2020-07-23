@@ -7,6 +7,7 @@
 UAmountComponent::UAmountComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 }
 

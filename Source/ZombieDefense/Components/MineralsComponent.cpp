@@ -4,6 +4,12 @@
 #include "MineralsComponent.h"
 #include "ZombieDefense/Components/HealthComponent.h"
 
+UMineralsComponent::UMineralsComponent()
+{
+    PrimaryComponentTick.bCanEverTick = false;
+    PrimaryComponentTick.bStartWithTickEnabled = false;
+}
+
 void UMineralsComponent::BeginPlay()
 {
     Super::BeginPlay();

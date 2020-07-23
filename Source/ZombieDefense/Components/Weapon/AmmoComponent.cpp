@@ -6,6 +6,9 @@
 
 UAmmoComponent::UAmmoComponent()
 {
+    PrimaryComponentTick.bCanEverTick = false;
+    PrimaryComponentTick.bStartWithTickEnabled = false;
+    
     ClipSizeInitial = 1;
     ClipSizeCurrent = ClipSizeInitial;
     ReloadTime = 1.0f;

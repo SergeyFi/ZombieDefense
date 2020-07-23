@@ -7,6 +7,7 @@
 UHealthComponent::UHealthComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 	HealthMax = 100.0f;
 	HealthCurrent = HealthMax;

@@ -9,6 +9,7 @@
 UAttackComponent::UAttackComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 	Damage = 1.0f;
 	DamageRate = 1.0f;

@@ -9,6 +9,7 @@
 UDamagerComponent::UDamagerComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 	CriticalDamageMultiplier = 1.0f;
 

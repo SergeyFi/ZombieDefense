@@ -10,6 +10,7 @@
 UWeaponProperties::UWeaponProperties()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 }
 
 
