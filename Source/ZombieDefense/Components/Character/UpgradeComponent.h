@@ -7,7 +7,7 @@
 #include "UpgradeComponent.generated.h"
 
 
-UCLASS( meta=(IsBlueprintBase="true") )
+UCLASS( meta=(IsBlueprintBase="false") )
 class ZOMBIEDEFENSE_API UUpgradeComponent : public UActorComponent
 {
 	GENERATED_BODY()
