@@ -50,10 +50,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HealthCurrent;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HealthMax;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float DamageResistance;
 
 	UPROPERTY(EditAnywhere)
@@ -62,7 +62,7 @@ protected:
 	UPROPERTY(EditAnywhere)
 	bool bHealthRegen;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HealthRegen;
 
 	UPROPERTY(EditAnywhere)
