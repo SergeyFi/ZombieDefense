@@ -14,6 +14,6 @@ class ZOMBIEDEFENSE_API UWeaponFireRateUp : public UUpgradeComponent
 
 private:
 
-	virtual void UpgradeVirtual();
+	virtual void UpgradeVirtual(float UpgradeStepNew);
 	
 };

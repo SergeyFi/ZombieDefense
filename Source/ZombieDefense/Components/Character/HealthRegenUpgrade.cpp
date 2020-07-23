@@ -5,12 +5,12 @@
 
 #include "ZombieDefense/Components/HealthComponent.h"
 
-void UHealthRegenUpgrade::UpgradeVirtual()
+void UHealthRegenUpgrade::UpgradeVirtual(float UpgradeStepNew)
 {
     auto HealthComponent = GetOwner()->FindComponentByClass<UHealthComponent>();
 
     if (HealthComponent)
     {
-        HealthComponent->IncreaseHealthRegen(UpgradeStep);
+        HealthComponent->IncreaseHealthRegen(UpgradeStepNew);
     }
 }

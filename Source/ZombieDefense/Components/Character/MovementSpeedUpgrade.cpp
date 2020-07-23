@@ -5,12 +5,12 @@
 
 #include "GameFramework/CharacterMovementComponent.h"
 
-void UMovementSpeedUpgrade::UpgradeVirtual()
+void UMovementSpeedUpgrade::UpgradeVirtual(float UpgradeStepNew)
 {
     auto CharacterMovementComp = GetOwner()->FindComponentByClass<UCharacterMovementComponent>();
 
     if (CharacterMovementComp)
     {
-        CharacterMovementComp->MaxWalkSpeed += UpgradeStep;
+        CharacterMovementComp->MaxWalkSpeed += UpgradeStepNew;
     }
 }

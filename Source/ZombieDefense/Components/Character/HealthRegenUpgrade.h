@@ -14,5 +14,5 @@ class ZOMBIEDEFENSE_API UHealthRegenUpgrade : public UUpgradeComponent
 
 private:
 	
-	virtual void UpgradeVirtual() override;
+	virtual void UpgradeVirtual(float UpgradeStepNew) override;
 };

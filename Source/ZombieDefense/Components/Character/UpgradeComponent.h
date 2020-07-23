@@ -18,7 +18,18 @@ public:
 
 	void Upgrade();
 
+	void UpgradeUnlimit();
+
+	void UpgradeAddLevel(int Level);
+
 protected:
+	
+	virtual void UpgradeVirtual(float UpgradeStepNew);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int LevelCurrent;
+
+private:
 
 	UPROPERTY(EditAnywhere)
 	int MineralsUpgradeStep;
@@ -34,7 +45,5 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	float UpgradeLimit;
-
-	virtual void UpgradeVirtual();
 		
 };

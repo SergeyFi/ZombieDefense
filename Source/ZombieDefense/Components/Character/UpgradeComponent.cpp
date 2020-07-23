@@ -21,19 +21,35 @@ void UUpgradeComponent::Upgrade()
 		{
 			if (MineralsComp->GetMinerals() >= MineralsToUpgrade)
 			{
-				UpgradeVirtual();
+				UpgradeVirtual(UpgradeStep);
 
 				MineralsComp->RemoveMinerals(MineralsToUpgrade);
 
 				MineralsToUpgrade += MineralsUpgradeStep;
 
 				UpgradeStepTotal += UpgradeStep;
+
+				LevelCurrent++;
 			}
 		}
 	}
 }
 
-void UUpgradeComponent::UpgradeVirtual()
+void UUpgradeComponent::UpgradeUnlimit()
+{
+	UpgradeVirtual(UpgradeStep);
+
+	LevelCurrent++;
+}
+
+void UUpgradeComponent::UpgradeAddLevel(int Level)
+{
+	UpgradeVirtual(UpgradeStep * Level);
+
+	LevelCurrent += Level;
+}
+
+void UUpgradeComponent::UpgradeVirtual(float UpgradeStepNew)
 {
 	
 }

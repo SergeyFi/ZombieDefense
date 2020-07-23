@@ -14,6 +14,6 @@ class ZOMBIEDEFENSE_API UDamageResistUpgrade : public UUpgradeComponent
 
 private:
 
-	virtual void UpgradeVirtual() override;
+	virtual void UpgradeVirtual(float UpgradeStepNew) override;
 		
 };

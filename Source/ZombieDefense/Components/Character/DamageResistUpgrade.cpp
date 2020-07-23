@@ -6,12 +6,12 @@
 #include "ZombieDefense/Components/HealthComponent.h"
 
 
-void UDamageResistUpgrade::UpgradeVirtual()
+void UDamageResistUpgrade::UpgradeVirtual(float UpgradeStepNew)
 {
 	auto HealthComponent = GetOwner()->FindComponentByClass<UHealthComponent>();
 
 	if (HealthComponent)
 	{
-		HealthComponent->AddDamageResist(UpgradeStep);
+		HealthComponent->AddDamageResist(UpgradeStepNew);
 	}
 }

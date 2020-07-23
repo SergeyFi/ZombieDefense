@@ -5,13 +5,13 @@
 
 #include "ZombieDefense/Components/Weapon/WeaponProperties.h"
 
-void UWeaponFireRateUp::UpgradeVirtual()
+void UWeaponFireRateUp::UpgradeVirtual(float UpgradeStepNew)
 {
     auto WeaponPropComp =  GetOwner()->FindComponentByClass<UWeaponProperties>();
 
     if (WeaponPropComp)
     {
-        float FireRateNew = WeaponPropComp->GetFireRate() + UpgradeStep;
+        float FireRateNew = WeaponPropComp->GetFireRate() + UpgradeStepNew;
 
         WeaponPropComp->SetFireRate(FireRateNew);
     }

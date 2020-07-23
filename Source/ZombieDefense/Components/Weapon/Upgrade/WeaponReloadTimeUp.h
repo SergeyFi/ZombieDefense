@@ -14,7 +14,7 @@ class ZOMBIEDEFENSE_API UWeaponReloadTimeUp : public UUpgradeComponent
 
 private:
 
-	virtual void UpgradeVirtual() override;
+	virtual void UpgradeVirtual(float UpgradeStepNew) override;
 	
 	
 };

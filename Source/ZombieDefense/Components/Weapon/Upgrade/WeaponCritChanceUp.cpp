@@ -5,13 +5,13 @@
 
 #include "ZombieDefense/Components/Weapon/WeaponProperties.h"
 
-void UWeaponCritChanceUp::UpgradeVirtual()
+void UWeaponCritChanceUp::UpgradeVirtual(float UpgradeStepNew)
 {
     auto WeaponPropComp =  GetOwner()->FindComponentByClass<UWeaponProperties>();
 
     if (WeaponPropComp)
     {
-        float CritChanceNew = WeaponPropComp->GetCriticalDamageChance() + UpgradeStep;
+        float CritChanceNew = WeaponPropComp->GetCriticalDamageChance() + UpgradeStepNew;
 
         WeaponPropComp->SetCiriticalDamageChance(CritChanceNew);
     }
