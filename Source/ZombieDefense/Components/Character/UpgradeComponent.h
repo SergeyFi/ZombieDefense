@@ -32,7 +32,7 @@ protected:
 	
 	virtual void UpgradeVirtual(float UpgradeStepNew);
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int LevelCurrent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
