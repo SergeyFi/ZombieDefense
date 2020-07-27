@@ -49,6 +49,11 @@ void UUpgradeComponent::UpgradeAddLevel(int Level)
 	LevelCurrent += Level;
 }
 
+int UUpgradeComponent::GetMineralsToUpgrade()
+{
+	return MineralsToUpgrade;
+}
+
 void UUpgradeComponent::UpgradeVirtual(float UpgradeStepNew)
 {
 	

@@ -16,11 +16,17 @@ public:
 	// Sets default values for this component's properties
 	UUpgradeComponent();
 
+	UFUNCTION(BlueprintCallable)
 	void Upgrade();
 
+	UFUNCTION(BlueprintCallable)
 	void UpgradeUnlimit();
 
+	UFUNCTION(BlueprintCallable)
 	void UpgradeAddLevel(int Level);
+
+	UFUNCTION(BlueprintCallable)
+	int GetMineralsToUpgrade();
 
 protected:
 	
