@@ -35,6 +35,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int LevelCurrent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName UpgradeName;
+
 private:
 
 	UPROPERTY(EditAnywhere)
