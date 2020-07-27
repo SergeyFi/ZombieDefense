@@ -102,6 +102,7 @@ void UHealthComponent::RemoveDamageResist(float DamageResist)
 void UHealthComponent::IncreaseMaxHealth(float HealthUpgrade)
 {
 	HealthMax += HealthUpgrade;
+	StartHealthRegen();
 }
 
 void UHealthComponent::IncreaseHealthRegen(float HealthRegenUpgrade)
