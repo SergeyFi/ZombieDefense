@@ -16,6 +16,7 @@ public:
 	// Sets default values for this component's properties
 	UWeaponHolder();
 
+	UFUNCTION(BlueprintCallable)
 	AActor* GetWeapon();
 
 protected:
