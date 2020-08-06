@@ -30,7 +30,9 @@ protected:
 	void StartSpawn();
 
 	void StopSpawn();
-
+	
+	virtual void OnSpawnedObjDestroy(AActor* DestroyedActor);
+	
 	UPROPERTY(EditAnywhere)
 	int SpawnCountInitial;
 

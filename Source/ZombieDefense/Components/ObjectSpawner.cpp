@@ -20,7 +20,7 @@ void UObjectSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (SpawnClass && bStartOnBeginPlay)
+	if (bStartOnBeginPlay)
 	{
 		StartSpawn();
 	}
@@ -45,6 +45,7 @@ void UObjectSpawner::SpawnObject()
 		if (SpawnedObject)
 		{
 			++SpawnCurrent;
+			SpawnedObject->OnDestroyed.AddDynamic(this, &UObjectSpawner::OnSpawnedObjDestroy);
 		}
 	}
 }
@@ -82,4 +83,9 @@ FVector UObjectSpawner::GeneratePointInCircle(float OutRad, float InRad)
 FRotator UObjectSpawner::RandomRotation()
 {
 	return FRotator(0.0f, 0.0f, FMath::RandRange(0.0f, 360.0f));
+}
+
+void UObjectSpawner::OnSpawnedObjDestroy(AActor* DestroyedActor)
+{
+	--SpawnCurrent;
 }

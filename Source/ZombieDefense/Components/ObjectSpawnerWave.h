@@ -16,22 +16,17 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-private:
+	virtual void OnSpawnedObjDestroy(AActor* DestroyedActor) override;
 
-	UPROPERTY(EditAnywhere, Category = "Wave")
-	float WaveItitialDelay;
+private:
 
 	UPROPERTY(EditAnywhere, Category = "Wave")
 	float WaveDelay;
 
-	FTimerHandle TimerInitial;
+	FTimerHandle TimerWaveDelay;
 
-	FTimerHandle TimerWave;
+	void WaveDelayed();
 
-	void WaveInit();
-
-	void StartWaves();
-
-	void StartWave();
+	
 	
 };
