@@ -7,7 +7,7 @@ void UObjectSpawnerWave::BeginPlay()
 {
     Super::BeginPlay();
 
-    WaveDelayed();
+    StartWaves();
 }
 
 void UObjectSpawnerWave::OnSpawnedObjDestroy(AActor* DestroyedActor)
@@ -18,11 +18,13 @@ void UObjectSpawnerWave::OnSpawnedObjDestroy(AActor* DestroyedActor)
     {
         SpawnCurrent = 0;
 
-        WaveDelayed();
+        SpawnCount += SpawnCountNextWave;
+
+        StartWaves();
     }
 }
 
-void UObjectSpawnerWave::WaveDelayed()
+void UObjectSpawnerWave::StartWaves()
 {
     GetWorld()->GetTimerManager().SetTimer(TimerWaveDelay, this, &UObjectSpawnerWave::StartSpawn,
         WaveDelay, false, WaveDelay);

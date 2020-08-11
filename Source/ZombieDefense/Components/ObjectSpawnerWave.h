@@ -7,7 +7,7 @@
 #include "ObjectSpawnerWave.generated.h"
 
 
-UCLASS()
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ZOMBIEDEFENSE_API UObjectSpawnerWave : public UObjectSpawner
 {
 	GENERATED_BODY()
@@ -20,12 +20,15 @@ protected:
 
 private:
 
-	UPROPERTY(EditAnywhere, Category = "Wave")
+	UPROPERTY(EditAnywhere)
 	float WaveDelay;
+
+	UPROPERTY(EditAnywhere)
+	int SpawnCountNextWave;
 
 	FTimerHandle TimerWaveDelay;
 
-	void WaveDelayed();
+	void StartWaves();
 
 	
 	

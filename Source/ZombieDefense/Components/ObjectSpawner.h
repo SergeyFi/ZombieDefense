@@ -21,26 +21,30 @@ public:
 	// Sets default values for this component's properties
 	UObjectSpawner();
 
+	UFUNCTION(BlueprintCallable)
+	void StartSpawn();
+
+	UFUNCTION(BlueprintCallable)
+	void StopSpawn();
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	UFUNCTION()
 	virtual void SpawnObject();
 
-	void StartSpawn();
-
-	void StopSpawn();
-	
+	UFUNCTION()
 	virtual void OnSpawnedObjDestroy(AActor* DestroyedActor);
 	
 	UPROPERTY(EditAnywhere)
-	int SpawnCountInitial;
-
-	UPROPERTY(EditAnywhere)
-	int SpawnCountIncrease;
+	int SpawnCount;
 
 	UPROPERTY(VisibleAnywhere)
 	int SpawnCurrent;
+
+	UPROPERTY(VisibleAnywhere)
+	int SpawnTotal;
 
 
 private:

@@ -11,8 +11,6 @@ UObjectSpawner::UObjectSpawner()
 
 	MaxSpawnAttempts = 10;
 	SpawnRate = 1.0f;
-
-	SpawnCountIncrease = 2.0f;
 }
 
 // Called when the game starts
@@ -32,7 +30,7 @@ void UObjectSpawner::SpawnObject()
 	{
 		AActor* SpawnedObject = nullptr;
 		
-		for (auto i = 0; i < MaxSpawnAttempts || !SpawnedObject; ++i)
+		for (auto i = 0; i < MaxSpawnAttempts && !SpawnedObject; ++i)
 		{
 			auto SpawnLocation = GeneratePointInCircle(OutRadius, InnerRadius);
 
@@ -45,7 +43,15 @@ void UObjectSpawner::SpawnObject()
 		if (SpawnedObject)
 		{
 			++SpawnCurrent;
+			++SpawnTotal;
+			
 			SpawnedObject->OnDestroyed.AddDynamic(this, &UObjectSpawner::OnSpawnedObjDestroy);
+
+			if (SpawnTotal >= SpawnCount)
+			{
+				StopSpawn();
+				SpawnTotal = 0;
+			}
 		}
 	}
 }
