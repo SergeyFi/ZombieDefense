@@ -12,14 +12,21 @@ UDamagerComponent::UDamagerComponent()
 	PrimaryComponentTick.bStartWithTickEnabled = false;
 
 	CriticalDamageMultiplier = 1.0f;
-
-	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("SphereOverlap"));
-	Sphere->OnComponentBeginOverlap.AddDynamic(this, &UDamagerComponent::OnSphereOverlap);
-	Sphere->SetupAttachment(this);
 }
 
-void UDamagerComponent::OnSphereOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
-	class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void UDamagerComponent::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (DetectorShape)
+	{
+		DetectorShape->OnComponentBeginOverlap.AddDynamic(this, &UDamagerComponent::OnDetectorOverlap);
+		DetectorShape->AttachToComponent(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+	}
+}
+
+void UDamagerComponent::OnDetectorOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+                                          class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (OtherActor)
 	{

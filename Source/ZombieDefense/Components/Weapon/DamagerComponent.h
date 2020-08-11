@@ -32,13 +32,16 @@ public:
 
 protected:
 
+	void BeginPlay() override;
+
 	UPROPERTY(EditAnywhere)
-	class USphereComponent* Sphere;
+	class UShapeComponent* DetectorShape;
 
 	UFUNCTION()
-	void OnSphereOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+	void OnDetectorOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
 		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	void DestroyProjectile();
+
 
 };
