@@ -29,6 +29,7 @@ void UWeaponHolder::SpawnWeapon()
 	if (World && WeaponClass)
 	{
 		FActorSpawnParameters SpawnParameters;
+		SpawnParameters.Instigator = Cast<APawn>(GetOwner());
 		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		
 		Weapon = World->SpawnActor<AActor>(WeaponClass, GetComponentTransform(), SpawnParameters);
