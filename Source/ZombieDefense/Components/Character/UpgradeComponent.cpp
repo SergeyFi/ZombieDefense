@@ -11,7 +11,7 @@ UUpgradeComponent::UUpgradeComponent()
 	PrimaryComponentTick.bStartWithTickEnabled = false;
 }
 
-void UUpgradeComponent::Upgrade()
+bool UUpgradeComponent::Upgrade()
 {
 	if (UpgradeStepTotal <= UpgradeLimit || UpgradeLimit == 0)
 	{
@@ -30,9 +30,13 @@ void UUpgradeComponent::Upgrade()
 				UpgradeStepTotal += UpgradeStep;
 
 				LevelCurrent++;
+
+				return true;
 			}
 		}
 	}
+
+	return false;
 }
 
 void UUpgradeComponent::UpgradeUnlimit()

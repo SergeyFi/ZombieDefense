@@ -17,7 +17,7 @@ public:
 	UUpgradeComponent();
 
 	UFUNCTION(BlueprintCallable)
-	void Upgrade();
+	bool Upgrade();
 
 	UFUNCTION(BlueprintCallable)
 	void UpgradeUnlimit();
