@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "IndicatorBase.generated.h"
 
 
