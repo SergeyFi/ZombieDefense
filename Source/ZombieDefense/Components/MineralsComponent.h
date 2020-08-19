@@ -24,6 +24,11 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	int GetMinerals();
+
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMineralsDelegate, float, Amount);
+
+	UPROPERTY(BlueprintAssignable)
+	FMineralsDelegate OnAddMinerals;
 	
 protected:
 

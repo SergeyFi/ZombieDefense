@@ -20,6 +20,8 @@ void UMineralsComponent::BeginPlay()
 void UMineralsComponent::AddMinerals(int Amount)
 {
     Minerals += Amount;
+
+    OnAddMinerals.Broadcast(Amount);
 }
 
 void UMineralsComponent::RemoveMinerals(int Amount)
