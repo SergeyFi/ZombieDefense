@@ -36,6 +36,16 @@ void UIndicatorBase::RotateIndicatorToCamera(float DeltaTime)
 	TextRender->SetWorldLocation(TargetLocation + GetOwner()->GetActorLocation());
 }
 
+void UIndicatorBase::HideIndicator()
+{
+	TextRender->SetVisibility(false);
+}
+
+void UIndicatorBase::ShowIndicator()
+{
+	TextRender->SetVisibility(true);
+}
+
 // Called every frame
 void UIndicatorBase::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {

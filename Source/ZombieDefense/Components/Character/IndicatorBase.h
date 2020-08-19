@@ -30,6 +30,10 @@ protected:
 
 	void RotateIndicatorToCamera(float DeltaTime);
 
+	void HideIndicator();
+
+	void ShowIndicator();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
