@@ -109,3 +109,13 @@ void UHealthComponent::IncreaseHealthRegen(float HealthRegenUpgrade)
 {
 	HealthRegen += HealthRegenUpgrade;
 }
+
+float UHealthComponent::GetHealth()
+{
+	return HealthCurrent;
+}
+
+float UHealthComponent::GetMaxHealth()
+{
+	return  HealthMax;
+}

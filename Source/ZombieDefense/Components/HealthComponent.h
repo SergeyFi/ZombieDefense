@@ -28,6 +28,10 @@ public:
 
 	void IncreaseHealthRegen(float HealthRegenUpgrade);
 
+	float GetHealth();
+
+	float GetMaxHealth();
+
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHealthEvent, AActor*, Instigator, float, Health);
 
 	UPROPERTY(BlueprintAssignable)
